@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>HOME</h1>
+{% comment %} USING FOR LOOP ACCESSING NUMBERS FROM 1 TO 30  {% endcomment %}
+<ul>
+{% for item in collection %}
+    {% if item >= 10 %}
+
+        <li>{{item}}</li>
+    {% else %}
+        <li> no element</li>
+    {% endif %} 
+
+{% endfor %}
+</ul>
+
+{% endblock content %}
+
+
