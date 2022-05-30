@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <title>QR code generator</title>
+</head>
+{% block content %}
+<body>
+    <form action="{% url 'saveform' %}" method="post">
+        {%csrf_token%}
+        <p>
+
+           name : <input type="text" name="name">
+            
+        </p>
+        <p>
+            email: <input type="email" name="email">
+    
+        </p>
+
+        <p>
+            contact: <input type="Contact" name="contact">
+    
+        </p>
+        <p>
+            address: <input type="text" name="address">
+        </p>
+        <p>
+            services: <input type="text" name= "services"> 
+        </p>
+        {% comment %} <input type="file" id="myfile" name="image"> {% endcomment %}
+
+        <input type="submit" class = "btn btn-secondary" value="SUBMIT">
+
+
+
+
+    </form>
+
+
+    <div id= 'ans_div'>
+        <h1 id ='ans_had'>Your Qr code </h1>
+
+    </div>
+    <div id = 'QR'>
+        {% if datals %}
+            <img src="{% static 'image/test.png' %}" alt = "No image">
+        {% else %}
+            <h1> Please Enter data to generate qr code</h1>
+        {% endif %}
+
+    </div>
+   
+</body>
+{% endblock %}
+</html> 
+

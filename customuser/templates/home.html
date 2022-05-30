@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}" class = "btn btn-secondary">Log Out</a></p>
+  <a href="{%url 'cardcreate'%}" class = "btn btn-secondary">create you card</a>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}" class = "btn btn-secondary">Log In</a> 
+  <a href="{% url 'signup' %}" class = "btn btn-secondary">Sign Up</a>
+{% endif %}
+{% endblock %}
